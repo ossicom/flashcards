@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&family=Roboto:ital,wght@1,300&display=swap');
+
+html {
+    font-size: 62.5%; /* standart schriftgrösse von Browsern ist= 16 x 62.5 = 10px = 1rem */
+    box-sizing: border-box; /* alle anderen elemente passen sich  dem elternelement an */
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-size: 1.6rem;
+    background-image: url("image/world.png") ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1400px;
+}
+p{
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+}
+h1{
+    background-color: aqua;
+    width: 500px;
+}
+
+.card-section {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 200px 200px 200px;
+    grid-gap: 10px;
+    place-content: center;
+}
+.card{
+    height: 200px;
+    width: 200px;
+    position: relative;
+    transition: all .5s linear;
+    transform-style: preserve-3d;
+}
+.front,
+.back {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-family: "lobster", cursive;
+    border-radius: 10px;
+    position: absolute;
+}
+
+.front{
+    background: linear-gradient(#08aeea, #2af598);
+    z-index: 2;
+    backface-visibility: hidden;
+}
+.back{
+    background: linear-gradient(#f8da61, #ff5acd);
+    z-index: 1;
+    transform: rotateY(180deg);
+}
+.container:hover .card{
+    transform: rotateY(180deg);
+}
+.container{
+    perspective: 1000px;
+}
